@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.main-header {
+    margin-bottom: 2em;
+}
+
+.main-header__nav {
+    background-color: black;
+    padding: 1.5em;
+}
+
+.active {
+    background-color: #4c9e84;
+}
+
+.main-header__item-list {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    /*justify-content: space-evenly;*/
+}
+
+.main-header__item a {
+    color: white;
+    text-decoration: none;
+    padding: 40px 26px;
+}
+
+.main-header__item a:hover {
+    background-color: #4c9e84;
+}
+
+.main-header__img {
+    /*margin-top: 99px;*/
+    max-width: 100%;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky+.main-header__img {
+    padding-top: 99px;
+}
+
+main {
+    margin: 0 5%;
+}
+
+.main__header {
+    text-align: center;
+    background-color: #53a19a;
+    padding: 1em;
+    margin-bottom: 2em;
+    font-size: 3em;
+}
+
+.product__title {
+    padding: .5em;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 9em;
+    max-width: 85%;
+    margin: auto;
+}
+
+article.card {
+    box-shadow: 0px 0px 7px #3c3c3c;
+    padding: 5%;
+    display: grid;
+    transition: box-shadow .5s;
+}
+
+article.card:hover {
+    box-shadow: 0px 0px 20px #3c3c3c;
+}
+
+.product__action {
+    align-self: flex-end;
+}
+
+.card__image img {
+    display: block;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 200px;
+}
+
+.card__actions {
+    padding: 1rem;
+    text-align: center;
+}
+
+.card__actions button,
+.card__actions a {
+    margin: 6px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    text-decoration: none;
+    font: inherit;
+    border: 1px solid #00695c;
+    color: #00695c;
+    background: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn:hover,
+.btn:active {
+    background-color: #00695c;
+    color: white;
+}
+
+.centered {
+    text-align: center;
+    max-width: 50%;
+    margin: auto;
+}
+
+.form-control {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin: auto;
+}
+
+.product-form .btn {
+    max-width: 200px;
+    margin: auto;
+}
+
+input,
+textarea:focus {
+    padding: .5em;
+    margin-top: 4px;
+}
+
+input:focus,
+textarea:focus {
+    outline-color: #00695c;
+}
+
+footer {
+    display: flex;
+    background-color: black;
+    color: white;
+    padding: 1em;
+    margin-top: 3em;
+    justify-content: flex-end;
+}
+
+footer p {
+    padding: 15px;
+}

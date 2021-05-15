@@ -1,4 +1,5 @@
 const path = require('path');
+const cors = require('cors');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -17,6 +18,21 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
+const corsOptions = {
+    origin: "https://rachel-schutz-project1.herokuapp.com/",
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+const options = {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    family: 4
+};
+
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://rachelsg:Ftshpmoyr2481mo@cse341.ig6nd.mongodb.net/cse341?retryWrites=true&w=majority";
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -34,7 +50,10 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-mongoose.connect('mongodb+srv://rachelsg:Ftshpmoyr2481mo@cse341.ig6nd.mongodb.net/cse341?retryWrites=true&w=majority')
+mongoose
+    .connect(
+        MONGODB_URL, options
+    )
     .then(result => {
         User.findOne().then(user => {
             if (!user) {

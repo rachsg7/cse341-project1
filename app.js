@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
+const PORT = process.env.PORT || 3000 // So we can run on heroku || (OR) localhost:5000
+
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -46,7 +48,7 @@ mongoose.connect('mongodb+srv://rachelsg:Ftshpmoyr2481mo@cse341.ig6nd.mongodb.ne
                 user.save();
             }
         })
-        app.listen(3000);
+        app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
     })
     .catch(err => {
         console.log(err);

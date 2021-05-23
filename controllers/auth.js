@@ -60,6 +60,7 @@ exports.postLogin = (req, res, next) => {
 }
 
 exports.postSignup = (req, res, next) => {
+    const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
     const confirmPassword = req.body.confirmPassword;
@@ -73,6 +74,7 @@ exports.postSignup = (req, res, next) => {
                 .hash(password, 12)
                 .then(hashedPassword => {
                     const user = new User({
+                        name: name,
                         email: email,
                         password: hashedPassword,
                         cart: { items: [] }

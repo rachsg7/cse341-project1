@@ -2,12 +2,14 @@ const Product = require('../models/product');
 const Order = require('../models/orders');
 
 exports.getProducts = (req, res, next) => {
-    Product.find() // .find() is the mongoose function - not fetchAll which we defined
+    Product.find()
         .then(products => {
+            console.log(products);
             res.render('shop/product-list', {
                 prods: products,
                 pageTitle: 'All Products',
-                path: '/products'
+                path: '/products',
+                isAuthenticated: req.session.isLoggedIn
             });
         })
         .catch(err => {
@@ -17,12 +19,13 @@ exports.getProducts = (req, res, next) => {
 
 exports.getProduct = (req, res, next) => {
     const prodId = req.params.productId;
-    Product.findById(prodId) // .findById() is the mongoose function as well
+    Product.findById(prodId)
         .then(product => {
             res.render('shop/product-detail', {
                 product: product,
                 pageTitle: product.title,
-                path: '/products'
+                path: '/products',
+                isAuthenticated: req.session.isLoggedIn
             });
         })
         .catch(err => console.log(err));
@@ -89,7 +92,7 @@ exports.postOrder = (req, res, next) => {
             });
             const order = new Order({
                 user: {
-                    name: req.user.name,
+                    email: req.user.email,
                     userId: req.user
                 },
                 products: products
@@ -106,7 +109,7 @@ exports.postOrder = (req, res, next) => {
 };
 
 exports.getOrders = (req, res, next) => {
-    Order.find({ "user.userId": req.user._id })
+    Order.find({ 'user.userId': req.user._id })
         .then(orders => {
             res.render('shop/orders', {
                 path: '/orders',

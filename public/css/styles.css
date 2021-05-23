@@ -15,7 +15,10 @@ body {
 
 .main-header__nav {
     background-color: black;
-    padding: 1.5em;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .active {
@@ -32,7 +35,7 @@ body {
 .main-header__item a {
     color: white;
     text-decoration: none;
-    padding: 40px 26px;
+    padding: 33px 26px;
 }
 
 .main-header__item a:hover {
@@ -51,7 +54,7 @@ body {
 }
 
 .sticky+.main-header__img {
-    padding-top: 99px;
+    padding-top: 83px;
 }
 
 main {
@@ -179,4 +182,24 @@ footer {
 
 footer p {
     padding: 15px;
+}
+
+button.logout {
+    color: white;
+    background-color: black;
+    border: none;
+    font-size: 1.2em;
+    font-family: 'Montserrat';
+    /* padding: 35px 30px; */
+    margin: 0;
+}
+
+button.logout:hover {
+    background-color: #4c9e84;
+}
+
+.nomargin {
+    margin: 0;
+    padding: 0;
+    display: flex;
 }

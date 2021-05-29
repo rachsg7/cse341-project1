@@ -4,9 +4,26 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    height: 100%;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.header__form {
+    max-width: 50%;
+    margin: auto;
+    margin-bottom: 1em;
 }
 
 .main-header {
@@ -80,13 +97,14 @@ h1 {
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 9em;
+    grid-gap: 4em;
     max-width: 85%;
     margin: auto;
 }
 
 article.card {
     box-shadow: 0px 0px 7px #3c3c3c;
+    border-radius: 8px;
     padding: 5%;
     display: grid;
     transition: box-shadow .5s;
@@ -120,7 +138,7 @@ article.card:hover {
 
 .btn {
     display: inline-block;
-    padding: 0.25rem 1rem;
+    padding: .5em 2em;
     text-decoration: none;
     font: inherit;
     border: 1px solid #00695c;
@@ -155,14 +173,23 @@ article.card:hover {
     margin: auto;
 }
 
+img.img__detail {
+    max-height: 400px;
+}
+
 .product-form .btn {
     max-width: 200px;
-    margin: auto;
+    margin: 20px 0 0 15px;
+}
+
+input,
+textarea {
+    padding: 10px;
+    font-family: 'Montserrat';
 }
 
 input,
 textarea:focus {
-    padding: .5em;
     margin-top: 4px;
 }
 
@@ -178,6 +205,7 @@ footer {
     padding: 1em;
     margin-top: 3em;
     justify-content: flex-end;
+    flex-shrink: 0;
 }
 
 footer p {
@@ -202,4 +230,29 @@ button.logout:hover {
     margin: 0;
     padding: 0;
     display: flex;
+}
+
+.invalid {
+    border-color: red;
+}
+
+.username {
+    color: white;
+    align-self: center;
+    padding-right: 2em;
+}
+
+.orders,
+.cart__item-list {
+    border-radius: 8px;
+    padding: 2em;
+    list-style: none;
+    max-width: 50%;
+    margin: auto;
+    margin-bottom: 2em;
+    box-shadow: 0px 0px 7px #3c3c3c;
+}
+
+li.orders__products-item {
+    padding: 10px;
 }

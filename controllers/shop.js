@@ -30,7 +30,10 @@ exports.getProduct = (req, res, next) => {
                 user: req.user
             });
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);
+            res.redirect('/404');
+        });
 };
 
 exports.getIndex = (req, res, next) => {

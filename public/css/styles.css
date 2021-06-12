@@ -124,6 +124,7 @@ article.card:hover {
     margin-left: auto;
     margin-right: auto;
     max-height: 200px;
+    max-width: 400px;
 }
 
 .card__actions {
@@ -255,4 +256,11 @@ button.logout:hover {
 
 li.orders__products-item {
     padding: 10px;
+}
+
+.pagination {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
 }

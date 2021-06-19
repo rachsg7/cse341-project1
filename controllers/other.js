@@ -1,4 +1,6 @@
+const { model } = require("mongoose");
 const fetch = require("node-fetch");
+const pokemon = require('../models/pokemon')
 
 const ITEMS_PER_PAGE = 12;
 
@@ -30,4 +32,11 @@ exports.getWeek8 = (req, res, next) => {
                 lastPage: Math.ceil(totalItems / ITEMS_PER_PAGE)
             });
         });
+};
+
+exports.getWeek9 = (pageNum, callback) => {
+    const offset = 10 * (pageNum - 1);
+    pokemon.getPokemon(offset, (data) => {
+        callback(data);
+    })
 };

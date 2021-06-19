@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/pokemon.css">
+    <title>Pokemon</title>
+</head>
+
+<body>
+    <div class="grid">
+
+        <% pokemonList.forEach( pokemon => { %>
+            <article class="pokemon">
+                <%=pokemon.name%>
+            </article>
+            <% }); %>
+
+    </div>
+
+    <div class="centered">
+        <% if(page != 1) { %>
+            <a href="/week9/1"><button class="btn">First</button></a>
+            <a href="/week9/<%=parseInt(page) - 1%>"><button class="btn">Previous</button></a>
+            <% } %>
+
+                <button class="btn"><%=page%></button>
+
+                <% if(page != 112) { %>
+                    <a href="/week9/<%=parseInt(page) + 1%>"><button class="btn">Next</button></a>
+                    <a href="/week9/112"><button class="btn">Last</button></a>
+                    <% } %>
+    </div>
+</body>
+
+</html>

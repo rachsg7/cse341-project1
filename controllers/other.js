@@ -1,6 +1,10 @@
 const { model } = require("mongoose");
 const fetch = require("node-fetch");
-const pokemon = require('../models/pokemon')
+const pokemon = require('../models/pokemon');
+
+// const dummyData = require('../public/ta10.json');
+//const dummyData = require('http://localhost:3000/public/ta10.json');
+
 
 const ITEMS_PER_PAGE = 12;
 
@@ -40,3 +44,20 @@ exports.getWeek9 = (pageNum, callback) => {
         callback(data);
     })
 };
+
+exports.getWeek10 = (req, res, next) => {
+    console.log(dummyData);
+
+    fetch(dummyData)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(jsonObject) {
+            res.render('week10', {
+                title: 'Team Activity 10',
+                path: '/teamActivities/10',
+                data: jsonObject
+            });
+        })
+
+}

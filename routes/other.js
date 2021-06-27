@@ -18,6 +18,4 @@ router.get('/week9/:page', (req, res, next) => {
     })
 });
 
-router.get('/week10', otherController.getWeek10);
-
 module.exports = router;

@@ -107,7 +107,15 @@ mongoose
         MONGODB_URL, options
     )
     .then(result => {
-        app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+        const server = app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+        const io = require('socket.io')(server);
+        io.on('connection', socket => {
+            console.log('Client connected.');
+
+            socket.on('new-name', () => {
+                socket.broadcast.emit('update-list');
+            })
+        })
     })
     .catch(err => {
         const error = new Error(err);

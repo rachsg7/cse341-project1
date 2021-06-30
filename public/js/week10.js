@@ -1,3 +1,9 @@
+const socket = io();
+
+socket.on('update-list', () => {
+    populateList();
+})
+
 const populateList = () => {
     const nameList = document.getElementById('nameList')
 
@@ -37,7 +43,9 @@ const submitName = () => {
             document.getElementById('newName').value = ''
 
             // Repopulate the list with our new name added
-            populateList()
+            populateList();
+
+            socket.emit('new-name');
         })
         .catch(err => {
             document.getElementById('newName').value = ''
